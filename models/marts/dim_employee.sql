@@ -21,7 +21,6 @@ with
             , person.person_name
             , employee.job_tittle
             , employee.birth_date
-            , employee.gender
             , employee.hire_date
             , employee.vacation_hours
             , employee.sick_leave_hours
