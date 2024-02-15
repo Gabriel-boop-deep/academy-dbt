@@ -9,6 +9,7 @@ WITH
           productsubcategoryid AS product_subcategory_id
           , productcategoryid AS product_category_id
           , name AS product_subcategory_name
+          , *
         FROM source_product_sub_category
     )
 

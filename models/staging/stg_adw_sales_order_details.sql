@@ -9,8 +9,8 @@ WITH
             salesorderdetailid AS sales_order_detail_id
             , salesorderid AS sales_order_id
             , productid AS product_id
-            , orderqty AS order_qty
             , specialofferid AS special_offer_id
+            , orderqty AS order_qty
             , unitpricediscount AS unit_price_discount
             , unitprice AS unit_price
         FROM source_sales_order_detail

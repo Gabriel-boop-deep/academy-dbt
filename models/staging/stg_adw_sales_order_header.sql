@@ -27,8 +27,8 @@ WITH
             , onlineorderflag AS online_order_flag
             , subtotal AS sub_total
             , taxamt AS tax_amt
-            , freight
             , totaldue AS total_due
+            , freight
         FROM source_sales_order_header
     )
 

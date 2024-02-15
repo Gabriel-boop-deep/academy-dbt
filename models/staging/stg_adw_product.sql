@@ -10,6 +10,7 @@ WITH
            , name AS product_name
            , productsubcategoryid AS product_subcategory_id
            , safetystocklevel AS safety_stock_level
+           , color AS color_source_product
         FROM source_product
     )
 
