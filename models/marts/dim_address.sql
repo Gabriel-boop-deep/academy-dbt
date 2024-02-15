@@ -2,19 +2,19 @@ WITH
     address AS (
         SELECT *
         FROM {{ ref('stg_adw_address') }}
-    ),
+    )
 
-    state_province AS (
-        SELECT *
-        FROM {{ ref('stg_adw_state_province') }}
-    ),
-
-    country_region AS (
+    , country_region AS (
         SELECT *
         FROM {{ ref('stg_adw_country_region') }}  
-    ),
+    )
 
-    dim_address AS (
+    , state_province AS (
+        SELECT *
+        FROM {{ ref('stg_adw_state_province') }}
+    )
+
+    , dim_address AS (
         SELECT
             address.address_id,
             state_province.territory_id,
@@ -23,6 +23,7 @@ WITH
             state_province.province_name,
             country_region.country_name
         FROM address
+        
         LEFT JOIN state_province 
             ON address.state_province_id = state_province.state_province_id
         LEFT JOIN country_region 
