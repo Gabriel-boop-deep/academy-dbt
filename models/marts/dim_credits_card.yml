@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: dim_credit_card
+    description: "Tabela de dimensão do cartão de crédito fornecendo informações detalhadas sobre cada cartão de crédito usado em transações."
+    columns:
+      - name: credit_card_sk
+        description: A chave substituta do cartão de crédito. Este é um identificador único gerado artificialmente usado para fins de data warehouse.
+        tests:
+          - not_null
+          - unique
+
+      - name: credit_card_id
+        description: A chave natural do cartão de crédito. Esta é a chave primária do sistema de origem.
+        tests:
+          - not_null
+          - unique
+
+      - name: card_type
+        description: O tipo do cartão de crédito. Isso especifica o provedor do cartão, como 'Visa', 'MasterCard', 'American Express', etc.
+
+      - name: card_number
+        description: O número do cartão de crédito mascarado. Por razões de segurança, apenas os últimos quatro dígitos são geralmente armazenados, com o restante do número mascarado.
+
+      - name: exp_month
+        description: O mês de expiração do cartão de crédito. Armazenado como um número de 1 (janeiro) a 12 (dezembro).
+
+      - name: exp_year
+        description: O ano de expiração do cartão de crédito. Armazenado como um número de quatro dígitos (por exemplo, 2023).

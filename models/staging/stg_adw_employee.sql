@@ -7,13 +7,13 @@ WITH
     formatted_employee AS (
         SELECT 
             businessentityid AS employee_id
-            , jobtitle AS job_title
+            , jobtitle AS job_tittle
             , birthdate AS birth_date
             , gender
             , hiredate AS hire_date
             , vacationhours AS vacation_hours
             , sickleavehours AS sick_leave_hours
-            , currentflag AS current_fla
+            , currentflag AS current_flag
         FROM source_employee
     )
 

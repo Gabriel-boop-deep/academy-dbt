@@ -1,18 +1,57 @@
+version: 2
+
 models:
-  - name: dim_customers
-    description: "Tabela de dimensão do cliente fornecendo informações detalhadas sobre cada cliente."
+  - name: dim_employee
+    description: >
+      Tabela que serve como dimensão do funcionário no data warehouse. Fornece insights detalhados sobre cada vendedor de vendas, possibilitando decisões baseadas em dados sobre desempenho de vendas e gestão de funcionários.
     columns:
-      - name: customer_sk
-        description: A chave substituta do cliente. Este é um identificador único gerado artificialmente usado para fins de data warehouse.
+      - name: employee_sk
+        description: A chave substituta do funcionário. É um identificador único gerado automaticamente otimizado para fins de data warehousing.
         tests:
           - not_null
           - unique
-      
-      - name: customer_id
-        description: Chave primária.
+
+      - name: sales_person_id 
+        description: Esta é a chave natural do funcionário, originária dos sistemas de origem, garantindo consistência com sistemas legados.
         tests:
           - not_null
           - unique
-      
-      - name: customer_name 
-        description: O nome completo da pessoa associada ao cliente.
+          
+      - name: territory_id 
+        description: O identificador do território atualmente atribuído ao vendedor de vendas. Isso indica onde o funcionário é responsável por fazer vendas.
+
+      - name: person_name 
+        description: Nome completo do funcionário.
+
+      - name: job_title
+        description: Especifica a designação ou cargo oficial mantido pelo funcionário dentro da organização.
+
+      - name: birth_date
+        description: Indica a data de nascimento do funcionário, útil para análises relacionadas à idade.
+        
+      - name: gender 
+        description: Representa o gênero do funcionário, o que pode ser útil para estudos demográficos.
+
+      - name: hire_date 
+        description: A data em que o funcionário ingressou na empresa.
+
+      - name: vacation_hours
+        description: O número de horas de férias acumuladas ou tiradas pelo funcionário.
+
+      - name: sick_leave_hours
+        description: O número de horas de licença médica acumuladas ou tiradas pelo funcionário.
+
+      - name: sales_quota 
+        description: A meta de vendas estabelecida atribuída ao funcionário para um período específico.
+
+      - name: bonus 
+        description: Incentivo monetário fornecido ao funcionário com base no desempenho ou outros critérios.
+
+      - name: commission_pct
+        description: Percentual da receita de vendas que o funcionário ganha como comissão.
+
+      - name: sales_ytd
+        description: Representa as vendas totais feitas pelo funcionário no ano atual até a data.
+
+      - name: sales_last_year
+        description: Captura as vendas totais feitas pelo funcionário no ano anterior.

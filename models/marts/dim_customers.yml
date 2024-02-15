@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "Tabela de dimensão do cliente fornecendo informações detalhadas sobre cada cliente."
+    columns:
+      - name: customer_sk
+        description: A chave substituta do cliente. Este é um identificador único gerado artificialmente usado para fins de data warehouse.
+        tests:
+          - not_null
+          - unique
+      
+      - name: customer_id
+        description: Chave primária.
+        tests:
+          - not_null
+          - unique
+      
+      - name: customer_name 
+        description: O nome completo da pessoa associada ao cliente.
