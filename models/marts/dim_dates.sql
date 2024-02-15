@@ -45,15 +45,15 @@ with
                 when extract(month from date_day) = 10 then 'Outubro'
                 when extract(month from date_day) = 11 then 'Novembto'
                 when extract(month from date_day) = 12 then 'Dezembro'
-            end as fullmonth
+            end as full_month
         from date_series
     )
 
     , transformed as (
-        select
-            *
-            , concat('W', cast(week as string), '-', cast(year as string)) as week_year
-        from date_columns
+    select 
+        *
+        , 'W' || cast(week as string) || '-' || cast(year as string) as week_year
+    from date_columns
     )
 
 select *
