@@ -26,4 +26,4 @@ models:
         description: "Uma divisão adicional dentro de uma categoria de produto que fornece uma classificação mais específica do produto. Isso ajuda na classificação e análise mais detalhadas dos produtos."
 
       - name: safety_stock_level
-        description: "O nível mínimo de inventário mantido para o produto para evitar falta de estoque. Este número auxilia na gestão e planejamento de estoque."
+        description: "O nível mínimo de inventário mantido para o produto para evitar falta de estoque.Este número auxilia na gestão e planejamento de estoque."
