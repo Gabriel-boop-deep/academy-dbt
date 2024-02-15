@@ -46,3 +46,4 @@ with
 
 select *
 from dim_employee_sk
+order by sales_person_id
