@@ -1,0 +1,25 @@
+models:
+  - name: dim_sales_reason
+    description:
+      Tabela de razões de venda fornecendo informações detalhadas sobre o motivo de cada pedido.
+    columns:
+      - name: sales_reason_sk
+        description:
+          A chave substituta do pedido. Este é um identificador único gerado artificialmente usado para fins de data warehouse.
+        tests:
+          - not_null
+          - unique
+
+      - name: sales_order_id
+        description:
+          A chave natural da razão de venda. Esta é a chave primária do sistema de origem.
+        tests:
+          - not_null
+
+      - name: sales_reason_name
+        description:
+          O nome ou descrição da razão de venda. Isso fornece mais detalhes sobre por que um pedido específico foi feito, como 'Promoção', 'Sazonal', etc.
+
+      - name: reason_type
+        description:
+          O tipo da razão de venda. Isso categoriza as razões de venda em grupos mais amplos como 'Marketing', 'Outro', 'Em Promoção'.
