@@ -17,7 +17,7 @@ models:
       - name: address_line
         description: O endereço detalhado, incluindo qualquer número de apartamento ou unidade.
 
-      - name: city
+      - name: city_address
         description: O nome da cidade onde o endereço está localizado.
 
       - name: province_name

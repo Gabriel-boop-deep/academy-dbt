@@ -9,7 +9,7 @@ WITH
             addressid as address_id
            , stateprovinceid as state_province_id
            , addressline1 as address_line
-           , city
+           , city as city_address
         from source_address  
     )
 

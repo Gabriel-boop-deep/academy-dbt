@@ -12,55 +12,44 @@ models:
       - name: address_fk
         description: Chave estrangeira que vincula a tabela de fatos com a dimensão de endereço.
         tests:
+          - unique
           - not_null
-          - relationships:
-              to: ref('dim_address')
-              field: address_sk
+              
       
       - name: credit_card_fk
         description: Chave estrangeira que vincula a tabela de fatos com a dimensão de cartão de crédito.
         tests:
-          - relationships:
-              to: ref('dim_credit_card')
-              field: credit_card_sk
+          - unique
+          - not_null
     
       - name: customer_fk
         description: Chave estrangeira que vincula a tabela de fatos com a dimensão de clientes.
         tests:
+          - unique
           - not_null
-          - relationships:
-              to: ref('dim_customers')
-              field: customer_sk
     
       - name: sales_reason_fk
         description: Chave estrangeira que vincula a tabela de fatos com a dimensão de motivos de vendas.
         tests:
-          - relationships:
-              to: ref('dim_sales_reasons')
-              field: sales_reason_sk
+          - unique
+          - not_null
                   
       - name: product_fk
         description: Chave estrangeira que vincula a tabela de fatos com a dimensão de produtos.
         tests:
+          - unique
           - not_null
-          - relationships:
-              to: ref('dim_products')
-              field: product_sk
           
       - name: employee_fk
         description: Chave estrangeira que vincula a tabela de fatos com a dimensão de funcionários.
         tests:
-          - relationships:
-              to: ref('dim_employee')
-              field: employee_sk
-          
+          - unique
+          - not_null
+
       - name: metric_date
         description: Chave estrangeira da tabela de datas.
         tests:
           - not_null
-          - relationships:
-              to: ref('dim_dates')
-              field: metric_date
     
       - name: freight
         description: Custo de transporte

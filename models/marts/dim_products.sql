@@ -37,3 +37,4 @@ with
 
 select *
 from dim_product_sk
+order by product_id
