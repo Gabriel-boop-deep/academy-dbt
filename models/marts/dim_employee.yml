@@ -28,9 +28,6 @@ models:
 
       - name: birth_date
         description: Indica a data de nascimento do funcionário, útil para análises relacionadas à idade.
-        
-      - name: gender 
-        description: Representa o gênero do funcionário, o que pode ser útil para estudos demográficos.
 
       - name: hire_date 
         description: A data em que o funcionário ingressou na empresa.
