@@ -82,7 +82,7 @@ with
 )
 
 -- Métricas de fato
-, fact_metrics as (
+, fact_metrics_details as (
     select 
         metrics_sk
         , address_fk
@@ -90,7 +90,7 @@ with
         , customer_fk
         , sales_reason_fk
         , product_fk
-        , employee_fk
+        , employee_fk 
         , sales_order_id
         , metric_date 
         , ship_date
@@ -112,7 +112,7 @@ with
     select *
     ,unit_price * order_qty as gross_value
     , unit_price * order_qty - (1 - unit_price_discount) as net_total
-    from joined_table
+    from fact_metrics_details
 )
 
 -- Consulta final

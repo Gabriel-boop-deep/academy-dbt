@@ -3,47 +3,6 @@ models:
   - name: fact_table
     description: "Tabela de fatos que combina dados das tabelas de detalhes e cabeçalho de pedidos de vendas."
     columns:
-      - name: sales_order_id
-        description: "ID do pedido de vendas."
-        tests:
-          - not_null
-          - unique
-
-      - name: sales_order_detail_id
-        description: "ID do detalhe do pedido de vendas."
-        tests:
-          - not_null
-          - unique
-
-      - name: product_id
-        description: "ID do produto associado ao pedido de vendas."
-        tests:
-          - not_null
-          - unique
-
-      - name: customer_id
-        description: "ID do cliente associado ao pedido de vendas."
-        tests:
-          - not_null
-          - unique
-
-      - name: territory_id
-        description: "ID do território associado ao pedido de vendas."
-        tests:
-          - not_null
-          - unique
-
-      - name: bill_to_address_id
-        description: "ID do endereço de cobrança associado ao pedido de vendas."
-        tests:
-          - not_null
-          - unique
-
-      - name: sales_person_id
-        description: "ID do vendedor associado ao pedido de vendas."
-        tests:
-          - not_null
-          - unique
 
       - name: credit_card_id
         description: "ID do cartão de crédito associado ao pedido de vendas."

@@ -30,12 +30,12 @@ WITH
             ON state_province.country_region_code = country_region.country_region_code
     ),
 
-    dim_address_sk AS (
-    SELECT
-        MD5(address_id || '_' || territory_id || '_' || address_line || '_' || city_address || '_' || province_name || '_' || country_name) AS address_sk,
-        dim_address.*
-    FROM dim_address
-    )   
+    dim_address_sk as (
+        select
+            {{ dbt_utils.generate_surrogate_key(['address_id']) }} as address_sk
+            , *
+        from dim_address
+    )  
 
 SELECT *
 FROM dim_address_sk
