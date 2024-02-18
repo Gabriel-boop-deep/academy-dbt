@@ -8,38 +8,37 @@ models:
         tests:
           - unique
           - not_null
-    
+
       - name: address_fk
         description: Chave estrangeira que vincula a tabela de fatos com a dimensão de endereço.
         tests:
           - unique
           - not_null
-              
-      
+
       - name: credit_card_fk
         description: Chave estrangeira que vincula a tabela de fatos com a dimensão de cartão de crédito.
         tests:
           - unique
           - not_null
-    
+
       - name: customer_fk
         description: Chave estrangeira que vincula a tabela de fatos com a dimensão de clientes.
         tests:
           - unique
           - not_null
-    
+
       - name: sales_reason_fk
         description: Chave estrangeira que vincula a tabela de fatos com a dimensão de motivos de vendas.
         tests:
           - unique
           - not_null
-                  
+
       - name: product_fk
         description: Chave estrangeira que vincula a tabela de fatos com a dimensão de produtos.
         tests:
           - unique
           - not_null
-          
+
       - name: employee_fk
         description: Chave estrangeira que vincula a tabela de fatos com a dimensão de funcionários.
         tests:
@@ -50,27 +49,27 @@ models:
         description: Chave estrangeira da tabela de datas.
         tests:
           - not_null
-    
+
       - name: freight
         description: Custo de transporte
-      
+
       - name: net_total
         description: Total líquido das vendas
-      
+
       - name: order_date
         description: Data em que o pedido de venda foi criado
-    
+
       - name: order_qty
         description: Quantidade encomendada por produto
-        
+
       - name: unit_price_discount
         description: Valor do desconto
-      
+
       - name: unit_price
         description: Preço de venda de um único produto
-      
+
       - name: total_due
         description: Total devido pelo cliente. Calculado como Subtotal + TaxAmt + Freight
-      
+
       - name: tax_amount
         description: Valor do imposto

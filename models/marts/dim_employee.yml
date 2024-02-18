@@ -11,16 +11,16 @@ models:
           - not_null
           - unique
 
-      - name: sales_person_id 
+      - name: sales_person_id
         description: Esta é a chave natural do funcionário, originária dos sistemas de origem, garantindo consistência com sistemas legados.
         tests:
           - not_null
           - unique
-          
-      - name: territory_id 
+
+      - name: territory_id
         description: O identificador do território atualmente atribuído ao vendedor de vendas. Isso indica onde o funcionário é responsável por fazer vendas.
 
-      - name: person_name 
+      - name: person_name
         description: Nome completo do funcionário.
 
       - name: job_title
@@ -29,7 +29,7 @@ models:
       - name: birth_date
         description: Indica a data de nascimento do funcionário, útil para análises relacionadas à idade.
 
-      - name: hire_date 
+      - name: hire_date
         description: A data em que o funcionário ingressou na empresa.
 
       - name: vacation_hours
@@ -38,10 +38,10 @@ models:
       - name: sick_leave_hours
         description: O número de horas de licença médica acumuladas ou tiradas pelo funcionário.
 
-      - name: sales_quota 
+      - name: sales_quota
         description: A meta de vendas estabelecida atribuída ao funcionário para um período específico.
 
-      - name: bonus 
+      - name: bonus
         description: Incentivo monetário fornecido ao funcionário com base no desempenho ou outros critérios.
 
       - name: commission_pct

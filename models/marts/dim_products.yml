@@ -10,16 +10,16 @@ models:
           - not_null
           - unique
 
-      - name: product_id 
+      - name: product_id
         description: "A chave natural do produto. Este é o identificador original usado em sistemas de origem para identificar unicamente cada produto."
         tests:
           - not_null
           - unique
-          
-      - name: product_name 
+
+      - name: product_name
         description: "O nome oficial do produto conforme apareceria em listagens de produtos, catálogos e outras publicações oficiais."
 
-      - name: product_category_name 
+      - name: product_category_name
         description: "O nome da categoria à qual o produto pertence. Esta classificação de alto nível agrupa produtos semelhantes para fins de análise e relatórios."
 
       - name: product_subcategory_name
