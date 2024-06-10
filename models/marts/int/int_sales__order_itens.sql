@@ -41,3 +41,4 @@ with
 
 select *
 from fact_table
+order by sales_order_id
