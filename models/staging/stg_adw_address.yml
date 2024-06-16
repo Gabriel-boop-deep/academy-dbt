@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_adw_address
+    description: A formatted copy of the address table from the sap_adw database.
+    columns:
+      - name: address_id
+        description: Identifier of the address.
+        tests:
+          - not_null
+      - name: state_province_id
+        description: Identifier of the state/province.
+        tests:
+          - not_null
+      - name: address_line
+        description: Address line.
+      - name: city_address
+        description: City of the address.

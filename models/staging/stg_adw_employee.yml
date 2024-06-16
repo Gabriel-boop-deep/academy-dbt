@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_adw_employee
+    description: A formatted copy of the employee table from the sap_adw database.
+    columns:
+      - name: employee_id
+        description: Identifier of the employee.
+        tests:
+          - not_null
+      - name: job_title
+        description: Job title of the employee.
+      - name: birth_date
+        description: Birth date of the employee.
+      - name: hire_date
+        description: Hire date of the employee.
+      - name: vacation_hours
+        description: Number of vacation hours available.
+      - name: sick_leave_hours
+        description: Number of sick leave hours available.
+      - name: current_flag
+        description: Flag indicating if the employee is currently active.

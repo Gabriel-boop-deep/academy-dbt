@@ -1,0 +1,12 @@
+version: 2
+
+models:
+  - name: stg_adw_country_region
+    description: A formatted copy of the countryregion table from the sap_adw database.
+    columns:
+      - name: country_region_code
+        description: Code of the country/region.
+        tests:
+          - not_null
+      - name: country_name
+        description: Name of the country.

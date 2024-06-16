@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_adw_sales_order_header_sales_reason
+    description: A formatted copy of the salesorderheadersalesreason table from the sap_adw database.
+    columns:
+      - name: sales_order_id
+        description: Identifier of the sales order.
+        tests:
+          - not_null
+      - name: sales_reason_id
+        description: Identifier of the sales reason associated with the sales order.
+        tests:
+          - not_null

@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_adw_product
+    description: A formatted copy of the product table from the sap_adw database.
+    columns:
+      - name: product_id
+        description: Identifier of the product.
+        tests:
+          - not_null
+      - name: product_name
+        description: Name of the product.
+      - name: product_subcategory_id
+        description: Identifier of the product subcategory that the product belongs to.
+      - name: safety_stock_level
+        description: Safety stock level of the product.
+      - name: color_source_product
+        description: Color of the product from the source system.

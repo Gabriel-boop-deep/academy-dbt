@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_adw_customers
+    description: A formatted copy of the customer table from the sap_adw database.
+    columns:
+      - name: customer_id
+        description: Identifier of the customer.
+      - name: territory_id
+        description: Identifier of the territory.
+        tests:
+          - not_null
+      - name: person_id
+        description: Identifier of the person.
+      - name: store_id
+        description: Identifier of the store.
+      - name: modified_date
+        description: Date when the record was last modified.

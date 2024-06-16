@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: stg_adw_credit_card
+    description: A formatted copy of the creditcard table from the sap_adw database.
+    columns:
+      - name: credit_card_id
+        description: Identifier of the credit card.
+        tests:
+          - not_null
+      - name: card_type
+        description: Type of the credit card.
+      - name: card_number
+        description: Number of the credit card.
+      - name: expiration_month
+        description: Expiration month of the credit card.
+      - name: expiration_year
+        description: Expiration year of the credit card.

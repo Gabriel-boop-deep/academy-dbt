@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: stg_adw_sales_order_header
+    description: A formatted copy of the salesorderheader table from the sap_adw database.
+    columns:
+      - name: sales_order_id
+        description: Identifier of the sales order.
+        tests:
+          - not_null
+      - name: customer_id
+        description: Identifier of the customer associated with the sales order.
+        tests:
+          - not_null
+      - name: sales_person_id
+        description: Identifier of the sales person who handled the order.
+      - name: territory_id
+        description: Identifier of the territory associated with the sales order.
+      - name: bill_to_address_id
+        description: Identifier of the billing address for the sales order.
+        tests:
+          - not_null
+      - name: credit_card_id
+        description: Identifier of the credit card used for payment.
+      - name: order_date
+        description: Date when the order was placed.
+      - name: ship_date
+        description: Date when the order was shipped.
+      - name: due_date
+        description: Due date for the payment of the order.
+      - name: order_status
+        description: Status of the sales order (in progress, approved, backordered, rejected, shipped, canceled, or unknown).
+      - name: online_order_flag
+        description: Flag indicating if the order was placed online.
+      - name: sub_total
+        description: Subtotal amount of the sales order.
+      - name: tax_amt
+        description: Amount of tax applied to the sales order.
+      - name: total_due
+        description: Total amount due for the sales order.
+      - name: freight
+        description: Freight or shipping charges for the sales order.

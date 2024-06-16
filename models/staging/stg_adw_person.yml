@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_adw_person
+    description: A formatted copy of the person table from the sap_adw database.
+    columns:
+      - name: person_id
+        description: Identifier of the person.
+        tests:
+          - not_null
+      - name: person_type
+        description: Type of the person.
+      - name: person_name
+        description: Full name of the person.
+      - name: person_type_description
+        description: Description of the person type.

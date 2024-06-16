@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_adw_sales_person
+    description: A formatted copy of the salesperson table from the sap_adw database.
+    columns:
+      - name: sales_person_id
+        description: Identifier of the sales person.
+        tests:
+          - not_null
+      - name: territory_id
+        description: Identifier of the territory associated with the sales person.
+      - name: sales_quota
+        description: Sales quota for the sales person.
+      - name: commission_pct
+        description: Commission percentage for the sales person.
+      - name: sales_ytd
+        description: Year-to-date sales for the sales person.
+      - name: sales_last_year
+        description: Sales for the last year for the sales person.
+      - name: bonus
+        description: Bonus for the sales person.
