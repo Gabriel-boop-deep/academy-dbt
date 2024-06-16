@@ -1,3 +1,9 @@
+{{
+    config(
+        materialized='incremental'
+    )
+}}
+
 WITH 
     source_sales_order_header AS (
         SELECT *
@@ -34,3 +40,9 @@ WITH
 
 SELECT *
 FROM formatted_sales_order_header
+
+{% if is_incremental() %}
+  -- this filter will only be applied on an incremental run
+  -- (uses >= to include records whose order_date occurred since the last run of this model)
+  WHERE order_date >= (SELECT COALESCE(MAX(order_date), '1900-01-01') FROM {{ this }})
+{% endif %}
