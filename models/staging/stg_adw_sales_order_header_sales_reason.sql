@@ -13,3 +13,4 @@ WITH
     
 SELECT *
 FROM formatted_sales_reason
+-- Melhorar esse código
