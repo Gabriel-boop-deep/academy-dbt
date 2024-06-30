@@ -8,9 +8,9 @@ with
         select *
         from {{ ref('stg_adw_sales_order_header') }}
     )
- 
+
     , fact_table as (
-        select 
+        select
             sales_order_detail.sales_order_id
             , sales_order_detail.sales_order_detail_id
             , sales_order_detail.product_id
@@ -19,7 +19,7 @@ with
             , sales_order_header.bill_to_address_id
             , sales_order_header.sales_person_id
             , sales_order_header.credit_card_id
-            
+
             , sales_order_detail.order_qty
             , sales_order_detail.unit_price
             , sales_order_detail.unit_price_discount
@@ -39,5 +39,25 @@ with
             on sales_order_detail.sales_order_id = sales_order_header.sales_order_id
     )
 
-select *
+select
+    sales_order_id
+    , sales_order_detail_id
+    , product_id
+    , customer_id
+    , territory_id
+    , bill_to_address_id
+    , sales_person_id
+    , credit_card_id
+    , order_qty
+    , unit_price
+    , unit_price_discount
+    , ship_date
+    , due_date
+    , order_date
+    , order_status
+    , sub_total
+    , online_order_flag
+    , tax_amt
+    , total_due
+    , freight
 from fact_table

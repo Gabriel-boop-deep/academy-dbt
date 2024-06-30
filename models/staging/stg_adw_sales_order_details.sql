@@ -1,20 +1,20 @@
-WITH 
-    source_sales_order_detail AS (
-        SELECT *
-        FROM {{ source('sap_adw', 'salesorderdetail') }}
+with
+    source_sales_order_detail as (
+        select *
+        from {{ source('sap_adw', 'salesorderdetail') }}
     )
 
-    , formatted_sales_order_detail AS (
-        SELECT 
-            salesorderdetailid AS sales_order_detail_id
-            , salesorderid AS sales_order_id
-            , productid AS product_id
-            , specialofferid AS special_offer_id
-            , orderqty AS order_qty
-            , unitpricediscount AS unit_price_discount
-            , unitprice AS unit_price
-        FROM source_sales_order_detail
+    , formatted_sales_order_detail as (
+        select
+            salesorderdetailid as sales_order_detail_id
+            , salesorderid as sales_order_id
+            , productid as product_id
+            , specialofferid as special_offer_id
+            , orderqty as order_qty
+            , unitpricediscount as unit_price_discount
+            , unitprice as unit_price
+        from source_sales_order_detail
     )
 
-SELECT *
-FROM formatted_sales_order_detail
+select *
+from formatted_sales_order_detail

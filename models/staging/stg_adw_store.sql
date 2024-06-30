@@ -1,16 +1,16 @@
-WITH 
-    source_store AS (
-        SELECT *
-        FROM {{ source('sap_adw', 'store') }}
+with
+    source_store as (
+        select *
+        from {{ source('sap_adw', 'store') }}
     )
 
-    , formatted_store AS (
-        SELECT 
-            businessentityid AS store_id
-            , salespersonid AS sales_person_id
-            , name AS store_name
-        FROM source_store
+    , formatted_store as (
+        select
+            businessentityid as store_id
+            , salespersonid as sales_person_id
+            , name as store_name
+        from source_store
     )
-    
-SELECT *
-FROM formatted_store
+
+select *
+from formatted_store

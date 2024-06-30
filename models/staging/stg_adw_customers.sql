@@ -1,18 +1,18 @@
-WITH 
-    source_customer AS (
-        SELECT * 
-        FROM {{source('sap_adw', 'customer')}}
+with
+    source_customer as (
+        select *
+        from {{source('sap_adw', 'customer')}}
     )
 
-    , formatted_customer AS (
-        SELECT 
-            customerid AS customer_id
-            , territoryid AS territory_id
-            , personid AS person_id
-            , storeid AS store_id
-            , modifieddate AS modified_date
-        FROM source_customer  
+    , formatted_customer as (
+        select
+            customerid as customer_id
+            , territoryid as territory_id
+            , personid as person_id
+            , storeid as store_id
+            , modifieddate as modified_date
+        from source_customer
     )
-    
-SELECT *
-FROM formatted_customer
+
+select *
+from formatted_customer

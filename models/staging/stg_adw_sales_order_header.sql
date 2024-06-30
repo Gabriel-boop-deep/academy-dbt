@@ -1,48 +1,42 @@
 {{
     config(
-        materialized='incremental'
+        materialized='table'
     )
 }}
 
-WITH 
-    source_sales_order_header AS (
-        SELECT *
-        FROM {{ source('sap_adw', 'salesorderheader') }}   
+with
+    source_sales_order_header as (
+        select *
+        from {{ source('sap_adw', 'salesorderheader') }}
     )
 
-    , formatted_sales_order_header AS (
-        SELECT 
-            salesorderid AS sales_order_id
-            , customerid AS customer_id
-            , salespersonid AS sales_person_id
-            , territoryid AS territory_id
-            , billtoaddressid AS bill_to_address_id
-            , creditcardid AS credit_card_id
-            , DATE(orderdate) AS order_date
-            , DATE(shipdate) AS ship_date
-            , DATE(duedate) AS due_date
-            , CASE status
-                WHEN 1 THEN 'in progress'
-                WHEN 2 THEN 'approved'
-                WHEN 3 THEN 'backordered'
-                WHEN 4 THEN 'rejected'
-                WHEN 5 THEN 'shipped'
-                WHEN 6 THEN 'canceled'
-                ELSE 'unknown'
-            END AS order_status
-            , onlineorderflag AS online_order_flag
-            , subtotal AS sub_total
-            , taxamt AS tax_amt
-            , totaldue AS total_due
+    , formatted_sales_order_header as (
+        select
+            salesorderid as sales_order_id
+            , customerid as customer_id
+            , salespersonid as sales_person_id
+            , territoryid as territory_id
+            , billtoaddressid as bill_to_address_id
+            , creditcardid as credit_card_id
+            , date(orderdate) as order_date
+            , date(shipdate) as ship_date
+            , date(duedate) as due_date
+            , case status
+                when 1 then 'in progress'
+                when 2 then 'approved'
+                when 3 then 'backordered'
+                when 4 then 'rejected'
+                when 5 then 'shipped'
+                when 6 then 'canceled'
+                else 'unknown'
+            end as order_status
+            , onlineorderflag as online_order_flag
+            , subtotal as sub_total
+            , taxamt as tax_amt
+            , totaldue as total_due
             , freight
-        FROM source_sales_order_header
+        from source_sales_order_header
     )
 
-SELECT *
-FROM formatted_sales_order_header
-
-{% if is_incremental() %}
-  -- this filter will only be applied on an incremental run
-  -- (uses >= to include records whose order_date occurred since the last run of this model)
-  WHERE order_date >= (SELECT COALESCE(MAX(order_date), '1900-01-01') FROM {{ this }})
-{% endif %}
+select *
+from formatted_sales_order_header

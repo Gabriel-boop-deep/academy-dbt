@@ -1,18 +1,18 @@
-WITH 
-    source_product AS (
-        SELECT *
-        FROM {{ source('sap_adw', 'product') }}
+with
+    source_product as (
+        select *
+        from {{ source('sap_adw', 'product') }}
     )
 
-    , formatted_product AS (
-        SELECT
-           productid AS product_id
-           , name AS product_name
-           , productsubcategoryid AS product_subcategory_id
-           , safetystocklevel AS safety_stock_level
-           , color AS color_source_product
-        FROM source_product
+    , formatted_product as (
+        select
+            productid as product_id
+            , name as product_name
+            , productsubcategoryid as product_subcategory_id
+            , safetystocklevel as safety_stock_level
+            , color as color_source_product
+        from source_product
     )
 
-SELECT *
-FROM formatted_product
+select *
+from formatted_product

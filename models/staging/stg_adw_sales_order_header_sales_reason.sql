@@ -1,16 +1,16 @@
-WITH 
-    source_sales_reason AS (
-        SELECT *
-        FROM {{ source('sap_adw', 'salesorderheadersalesreason') }}
+with
+    source_sales_reason as (
+        select *
+        from {{ source('sap_adw', 'salesorderheadersalesreason') }}
     )
 
-    , formatted_sales_reason AS (
-        SELECT 
-            salesorderid AS sales_order_id
-            , salesreasonid AS sales_reason_id
-        FROM source_sales_reason
+    , formatted_sales_reason as (
+        select
+            salesorderid as sales_order_id
+            , salesreasonid as sales_reason_id
+        from source_sales_reason
     )
-    
-SELECT *
-FROM formatted_sales_reason
+
+select *
+from formatted_sales_reason
 -- Melhorar esse código

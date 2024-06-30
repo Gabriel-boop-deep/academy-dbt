@@ -1,15 +1,15 @@
-WITH 
-    source_country_region AS (
-        SELECT *
-        FROM {{ source('sap_adw', 'countryregion') }}
-    ),
-
-    formatted_country_region AS (
-        SELECT 
-            countryregioncode AS country_region_code
-            , name AS country_name
-        FROM source_country_region
+with
+    source_country_region as (
+        select *
+        from {{ source('sap_adw', 'countryregion') }}
     )
 
-SELECT *
-FROM formatted_country_region
+    , formatted_country_region as (
+        select
+            countryregioncode as country_region_code
+            , name as country_name
+        from source_country_region
+    )
+
+select *
+from formatted_country_region

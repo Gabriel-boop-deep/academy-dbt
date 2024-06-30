@@ -1,7 +1,5 @@
-SELECT 
-    ROUND(SUM(gross_value), 2) AS valor_total_negociado
-FROM 
+select round(sum(gross_value), 2) as valor_total_negociado
+from
     {{ ref('fct_sale_details') }}
-WHERE 
-    EXTRACT(YEAR FROM order_date) = 2011
-
+where
+    extract(year from order_date) = 2011

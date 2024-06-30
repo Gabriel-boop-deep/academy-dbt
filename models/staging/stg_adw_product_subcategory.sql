@@ -1,17 +1,17 @@
-WITH 
-    source_product_sub_category AS (
-        SELECT *
-        FROM {{ source('sap_adw', 'productsubcategory') }}    
+with
+    source_product_sub_category as (
+        select *
+        from {{ source('sap_adw', 'productsubcategory') }}
     )
 
-    , formatted_product_sub_category AS (
-        SELECT 
-          productsubcategoryid AS product_subcategory_id
-          , productcategoryid AS product_category_id
-          , name AS product_subcategory_name
-          , *
-        FROM source_product_sub_category
+    , formatted_product_sub_category as (
+        select
+            productsubcategoryid as product_subcategory_id
+            , productcategoryid as product_category_id
+            , name as product_subcategory_name
+            , *
+        from source_product_sub_category
     )
 
-SELECT *
-FROM formatted_product_sub_category
+select *
+from formatted_product_sub_category

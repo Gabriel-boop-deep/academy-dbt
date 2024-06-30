@@ -1,25 +1,25 @@
-WITH 
-    source_person AS (
-        SELECT *
-        FROM {{ source('sap_adw', 'person') }}
+with
+    source_person as (
+        select *
+        from {{ source('sap_adw', 'person') }}
     )
 
-    , formatted_person AS (
-        SELECT
-            businessentityid AS person_id
-            , persontype AS person_type
-            , firstname || ' ' || COALESCE(middlename || ' ', '') || lastname AS person_name
-            ,  CASE persontype
-                WHEN 'SC' THEN 'Store Contact'
-                WHEN 'VC' THEN 'Vendor Contact'
-                WHEN 'SP' THEN 'Sales Person'
-                WHEN 'EM' THEN 'Employee'
-                WHEN 'GC' THEN 'General Contact'
-                WHEN 'IN' THEN 'Individual Customer'
-                ELSE 'unknown'
-            END AS person_type_description
-        FROM source_person
+    , formatted_person as (
+        select
+            businessentityid as person_id
+            , persontype as person_type
+            , firstname || ' ' || coalesce(middlename || ' ', '') || lastname as person_name
+            , case persontype
+                when 'SC' then 'Store Contact'
+                when 'VC' then 'Vendor Contact'
+                when 'SP' then 'Sales Person'
+                when 'EM' then 'Employee'
+                when 'GC' then 'General Contact'
+                when 'IN' then 'Individual Customer'
+                else 'unknown'
+            end as person_type_description
+        from source_person
     )
 
-SELECT *
-FROM formatted_person
+select *
+from formatted_person

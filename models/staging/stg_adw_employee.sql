@@ -1,20 +1,20 @@
-WITH 
-    source_employee AS (
-        SELECT *
-        FROM {{ source('sap_adw', 'employee') }}
-    ),
-
-    formatted_employee AS (
-        SELECT 
-            businessentityid AS employee_id
-            , jobtitle AS job_tittle
-            , birthdate AS birth_date
-            , hiredate AS hire_date
-            , vacationhours AS vacation_hours
-            , sickleavehours AS sick_leave_hours
-            , currentflag AS current_flag
-        FROM source_employee
+with
+    source_employee as (
+        select *
+        from {{ source('sap_adw', 'employee') }}
     )
 
-SELECT *
-FROM formatted_employee
+    , formatted_employee as (
+        select
+            businessentityid as employee_id
+            , jobtitle as job_tittle
+            , birthdate as birth_date
+            , hiredate as hire_date
+            , vacationhours as vacation_hours
+            , sickleavehours as sick_leave_hours
+            , currentflag as current_flag
+        from source_employee
+    )
+
+select *
+from formatted_employee
