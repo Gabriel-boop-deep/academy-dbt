@@ -13,6 +13,11 @@ WITH
             , vacationhours AS vacation_hours
             , sickleavehours AS sick_leave_hours
             , currentflag AS current_flag
+            , case 
+                when gender = "F" then "Female"
+                when gender = "M" then "Masculine"
+                else gender
+              end as gender
         FROM source_employee
     )
 
